@@ -9,7 +9,7 @@ Description
 
 */
 
-ley myDate = new Date();
+let myDate = new Date();
 let myDay = myDate.getDay();
 
 switch (myDay) {
