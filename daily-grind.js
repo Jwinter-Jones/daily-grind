@@ -16,6 +16,15 @@ let coffee = "";
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
+if(urlParams.has('day')){//use querystring data
+    myDay = urlParams.get('day');
+}
+else{//use date object
+    myDay = myDate.getDay();
+}
+
+myDay = parseInt(myDay);
+
 switch (myDay) {
     case 1:
         today = "Monday";
@@ -28,6 +37,19 @@ switch (myDay) {
             desc: `Sometimes you just need the drip`
         };
         break;
+    
+    case 2:
+        today = "Tuesday";
+        coffee = {
+            color: "orange",
+            name: "Flat White",
+            pic: "images/Flat-White.jpg",
+            alt: "A pic of Flat White",
+            day: "Tuesday",
+            desc: 'If its not flat white, then its not right'
+        };
+    break;   
+    
 
     case 3:
         today = "Wednesday";
@@ -41,31 +63,61 @@ switch (myDay) {
         };
         break;
 
+        case 4:
+            today = "Thursday";
+            coffee = {
+                color: "red",
+                name: "Cortado",
+                pic: "images/Cortado.png",
+                alt: "A pic of Cortado",
+                day: "Thursday",
+                desc: 'I love me some Cortado'
+            };
+            break;
+
+
+        case 5:
+            today = "Friday";
+            coffee = {
+                color: "green",
+                name: "Cappuccino",
+                pic: "images/Cappuccino.jpg",
+                alt: "A pic of Cappuccino",
+                day: "Friday",
+                desc: `With this cappuccino, i can take on a rhino`
+             };
+            break; 
+
+        case 6:
+            today = "Saturday";
+            coffee = {
+                color: "Blue",
+                name: "Affogato",
+                pic: "images/Affogato.jpg",
+                alt: "A pic of Affogato",
+                day: "Saturday",
+                desc: `Which will wake me up? mi gato? Or my Affogato?`
+            };
+            break;
+
     default:
         break;
 }
 console.log(coffee);
 
-if(urlParams.has('day')){//use querystring data
-    myDay = urlParams.get('day');
-}
-else{//use date object
-    myDay = myDate.getDay();
-}
-
-myDay = parseInt(myDay);
-
 function coffeeTemplate(coffee){
     let myReturn = "";
-    myReturn += `
+    myReturn = `
     <p>
-    <img src="${coffee.pic}" alt="${coffee.alt}" id="coffee">
-    <strong id="coffee-highlight" class="feature">${coffee.day}'s Coffee Special is:</strong>
+    <img src="${coffee.pic}" alt="Our ${coffee.alt}" id="coffee">
+    <strong id="coffee-highlight" class="feature">${coffee.day}'s Coffee Special:</strong>
+    ${coffee.day}'s daily special is <strong>${coffee.name}</strong>, ${coffee.desc}
     <p>`;
     console.log(myReturn);
     return myReturn;
 
 }
+
 document.getElementById("coffee-output").innerHTML = coffeeTemplate(coffee);
 
 document.getElementsByTagName("HTML")[0].style.backgroundColor = coffee.color;
