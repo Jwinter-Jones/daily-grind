@@ -26,15 +26,28 @@ else{//use date object
 myDay = parseInt(myDay);
 
 switch (myDay) {
+    case 0:
+        today = "Sunday";
+        coffee = {
+            color: "purple",
+            name: "Cold Brew",
+            pic: "images/cold-brew.jpg",
+            alt: "pic of a Cold Brew",
+            day: "Sunday",
+            desc: `ahhhh some Cold Brew would be nice right now...`
+        };
+        break;   
+
+
     case 1:
         today = "Monday";
         coffee = {
             color:"pink",
             name:"Bubble Tea",
             pic:"images/bubble-tea.jpg",
-            alt:"A picture of a Bubble Tea",
-            day: "Monday",
-            desc: `Sometimes you just need the drip`
+            alt:"pic of a Bubble Tea",
+            day:"Monday",
+            desc:`sometimes you just need some bubbles`
         };
         break;
     
@@ -42,11 +55,11 @@ switch (myDay) {
         today = "Tuesday";
         coffee = {
             color: "orange",
-            name: "Flat White",
-            pic: "images/Flat-White.jpg",
-            alt: "A pic of Flat White",
+            name: "Vietnamese Iced Coffee",
+            pic: "images/vietnamese-iced-coffee.jpg",
+            alt: "pic of a Vietnamese Iced Coffee",
             day: "Tuesday",
-            desc: 'If its not flat white, then its not right'
+            desc: 'a Vietnamese Iced Coffee and Banh Mi sound good right now'
         };
     break;   
     
@@ -59,19 +72,19 @@ switch (myDay) {
             pic:"images/drip.jpg",
             alt:"A picture of a Drip Coffee",
             day: "Wednesday",
-            desc: `Sometimes you just need the drip`
+            desc: `sometimes you just need the drip`
         };
         break;
 
         case 4:
             today = "Thursday";
             coffee = {
-                color: "red",
-                name: "Cortado",
-                pic: "images/Cortado.png",
-                alt: "A pic of Cortado",
+                color: "yellow",
+                name: "Caramel Latte",
+                pic: "images/caramel-latte.jpg",
+                alt: "pic of a Caramel Latte",
                 day: "Thursday",
-                desc: 'I love me some Cortado'
+                desc: 'Caramel Latte\'s are very delicious'
             };
             break;
 
@@ -79,12 +92,12 @@ switch (myDay) {
         case 5:
             today = "Friday";
             coffee = {
-                color: "green",
-                name: "Cappuccino",
-                pic: "images/Cappuccino.jpg",
-                alt: "A pic of Cappuccino",
+                color: "Tan",
+                name: "Mocha",
+                pic: "images/mocha.jpg",
+                alt: "pic of a Mocha",
                 day: "Friday",
-                desc: `With this cappuccino, i can take on a rhino`
+                desc: `drink a Mocha today, for the nerves`
              };
             break; 
 
@@ -92,11 +105,11 @@ switch (myDay) {
             today = "Saturday";
             coffee = {
                 color: "Blue",
-                name: "Affogato",
-                pic: "images/Affogato.jpg",
-                alt: "A pic of Affogato",
+                name: "frappaccino",
+                pic: "images/frappaccino.jpg",
+                alt: "pic of a Frappaccino",
                 day: "Saturday",
-                desc: `Which will wake me up? mi gato? Or my Affogato?`
+                desc: `this isn't just from that other coffee shop, you know`
             };
             break;
 
@@ -109,10 +122,10 @@ function coffeeTemplate(coffee){
     let myReturn = "";
     myReturn = `
     <p>
-    <img src="${coffee.pic}" alt="Our ${coffee.alt}" id="coffee">
-    <strong id="coffee-highlight" class="feature">${coffee.day}'s Coffee Special:</strong>
+    <img src="${coffee.pic}" alt="Our ${coffee.alt}" id="coffee" style="float: left;">
+    <strong id="coffee-highlight" class="feature">${coffee.day}'s Coffee Special:</strong><br>
     ${coffee.day}'s daily special is <strong>${coffee.name}</strong>, ${coffee.desc}
-    <p>`;
+    <p><br>`;
     console.log(myReturn);
     return myReturn;
 
